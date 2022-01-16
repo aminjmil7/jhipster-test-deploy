@@ -1,0 +1,9 @@
+{
+  "herokutestingApp": {
+    "AuthType": {
+      "null": "",
+      "LEARN": "LEARN",
+      "TECHFILE": "TECHFILE"
+    }
+  }
+}

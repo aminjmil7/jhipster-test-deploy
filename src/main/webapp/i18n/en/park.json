@@ -1,0 +1,31 @@
+{
+  "herokutestingApp": {
+    "park": {
+      "home": {
+        "title": "Parks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Park",
+        "createOrEditLabel": "Create or edit a Park",
+        "notFound": "No Parks found"
+      },
+      "created": "A new Park is created with identifier {{ param }}",
+      "updated": "A Park is updated with identifier {{ param }}",
+      "deleted": "A Park is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Park {{ id }}?"
+      },
+      "detail": {
+        "title": "Park"
+      },
+      "id": "ID",
+      "parkName": "Park Name",
+      "parkAddress": "Park Address",
+      "longtitude": "Longtitude",
+      "latitude": "Latitude",
+      "verified": "Verified",
+      "equipement": "Equipement",
+      "media": "Media",
+      "report": "Report"
+    }
+  }
+}

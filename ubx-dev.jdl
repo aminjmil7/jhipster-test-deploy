@@ -1,0 +1,40 @@
+
+entity Park {
+	parkName String
+	parkAddress String
+	longtitude Long
+	latitude Long
+    verified Boolean
+}
+
+entity Equipement {
+	modelName String
+	modelNumber String
+	instruction String
+    verified Boolean
+}
+
+entity Report {
+	mail String
+	message String
+}
+
+entity Media {
+	fileName String
+	filePath String
+	fileType String
+	authType AuthType
+}
+
+enum AuthType {
+    LEARN, TECHFILE
+}
+
+relationship OneToMany {
+	Park to Equipement
+	Park to Media
+	Equipement to Report
+	Park to Report
+	Equipement to Media
+    Report to Media
+}

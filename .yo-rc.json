@@ -42,8 +42,10 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en", "ar-ly"],
-    "herokuAppName": "lit-journey-45902",
+    "herokuAppName": "mighty-waters-50300",
     "herokuDeployType": "jar",
-    "herokuJavaVersion": "11"
+    "herokuJavaVersion": "11",
+    "entities": ["Park", "Equipement", "Report", "Media"],
+    "lastLiquibaseTimestamp": 1642365741000
   }
 }

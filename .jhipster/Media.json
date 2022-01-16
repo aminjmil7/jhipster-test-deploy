@@ -1,0 +1,52 @@
+{
+  "name": "Media",
+  "fields": [
+    {
+      "fieldName": "fileName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "filePath",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fileType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "authType",
+      "fieldType": "AuthType",
+      "fieldValues": "LEARN,TECHFILE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "park",
+      "otherEntityRelationshipName": "media",
+      "relationshipName": "park"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "equipement",
+      "otherEntityRelationshipName": "media",
+      "relationshipName": "equipement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "report",
+      "otherEntityRelationshipName": "media",
+      "relationshipName": "report"
+    }
+  ],
+  "entityTableName": "media",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220116204221"
+}

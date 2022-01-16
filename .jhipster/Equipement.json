@@ -1,0 +1,51 @@
+{
+  "name": "Equipement",
+  "fields": [
+    {
+      "fieldName": "modelName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modelNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instruction",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "verified",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "report",
+      "otherEntityRelationshipName": "equipement",
+      "relationshipName": "report"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "media",
+      "otherEntityRelationshipName": "equipement",
+      "relationshipName": "media"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "park",
+      "otherEntityRelationshipName": "equipement",
+      "relationshipName": "park"
+    }
+  ],
+  "entityTableName": "equipement",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220116204219"
+}
