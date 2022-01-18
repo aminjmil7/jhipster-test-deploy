@@ -16,7 +16,8 @@
       "title": "User"
     },
     "login": "Login",
-    "firstName": "First name",
+    "firstName": "Name",
+    "password": "Password",
     "lastName": "Last name",
     "email": "Email",
     "activated": "Activated",

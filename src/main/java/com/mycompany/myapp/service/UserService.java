@@ -53,6 +53,7 @@ public class UserService {
                     // activate given user for the registration key.
                     user.setActivated(true);
                     user.setActivationKey(null);
+
                     log.debug("Activated user: {}", user);
                     return user;
                 }
@@ -69,6 +70,7 @@ public class UserService {
                     user.setPassword(passwordEncoder.encode(newPassword));
                     user.setResetKey(null);
                     user.setResetDate(null);
+
                     return user;
                 }
             );
@@ -82,6 +84,7 @@ public class UserService {
                 user -> {
                     user.setResetKey(RandomUtil.generateResetKey());
                     user.setResetDate(Instant.now());
+
                     return user;
                 }
             );
@@ -171,6 +174,7 @@ public class UserService {
             user.setAuthorities(authorities);
         }
         userRepository.save(user);
+
         log.debug("Created Information for User: {}", user);
         return user;
     }
@@ -206,6 +210,7 @@ public class UserService {
                         .filter(Optional::isPresent)
                         .map(Optional::get)
                         .forEach(managedAuthorities::add);
+
                     log.debug("Changed Information for User: {}", user);
                     return user;
                 }
@@ -219,6 +224,7 @@ public class UserService {
             .ifPresent(
                 user -> {
                     userRepository.delete(user);
+
                     log.debug("Deleted User: {}", user);
                 }
             );
@@ -246,6 +252,7 @@ public class UserService {
                     }
                     user.setLangKey(langKey);
                     user.setImageUrl(imageUrl);
+
                     log.debug("Changed Information for User: {}", user);
                 }
             );
@@ -264,6 +271,7 @@ public class UserService {
                     }
                     String encryptedPassword = passwordEncoder.encode(newPassword);
                     user.setPassword(encryptedPassword);
+
                     log.debug("Changed password for User: {}", user);
                 }
             );

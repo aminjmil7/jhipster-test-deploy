@@ -1,0 +1,9 @@
+{
+  "com.mycompany.myappApp": {
+    "AuthType": {
+      "null": "",
+      "LEARN": "LEARN",
+      "TECHFILE": "TECHFILE"
+    }
+  }
+}

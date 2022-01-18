@@ -6,12 +6,17 @@ import * as dayjs from 'dayjs';
 
 import { AccountService } from 'app/core/auth/account.service';
 import { FindLanguageFromKeyPipe } from 'app/shared/language/find-language-from-key.pipe';
+import { Account } from 'app/core/auth/account.model';
+import { CurrentDeviceService } from './current-device.service';
 
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html',
+  styleUrls: ['./main.scss'],
 })
 export class MainComponent implements OnInit {
+  isMobile = false;
+  currentAccount: Account | any;
   private renderer: Renderer2;
 
   constructor(
@@ -20,6 +25,7 @@ export class MainComponent implements OnInit {
     private router: Router,
     private findLanguageFromKeyPipe: FindLanguageFromKeyPipe,
     private translateService: TranslateService,
+    private checkdeviceservice: CurrentDeviceService,
     rootRenderer: RendererFactory2
   ) {
     this.renderer = rootRenderer.createRenderer(document.querySelector('html'), null);
@@ -28,6 +34,20 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     // try to log in automatically
     this.accountService.identity().subscribe();
+    this.checkdeviceservice.CheckDevice();
+    this.isMobile = this.checkdeviceservice.isMobile;
+
+    this.accountService.identity().subscribe(account => {
+      this.currentAccount = account;
+      if (!account) {
+        if (this.isMobile) {
+          this.router.navigate(['/login']);
+        }
+        if (!this.isMobile) {
+          this.router.navigate(['/login/Admin']);
+        }
+      }
+    });
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

@@ -42,7 +42,7 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en", "ar-ly"],
-    "herokuAppName": "lit-journey-45902",
+    "herokuAppName": "ubx-fitness-alpha",
     "herokuDeployType": "jar",
     "herokuJavaVersion": "11"
   }
