@@ -87,14 +87,14 @@
           </div>
 
           <div class="avatar-list d-flex" *ngIf="selectedUser.id">
-            <div class="uploadImage box-a">
+            <!-- <div class="uploadImage box-a">
               <div class="avatar-edit">
                 <input type="file" id="imageUpload" #fileInput (change)="uploadFile($event)" accept="image/*" />
               </div>
               <button type="button" class="btn btn-sm btn-upload" (click)="fileInput.click()">
                 <span class="uploadIcon text-white">➕</span>
               </button>
-            </div>
+            </div> -->
 
             <div class="avatar-preview p-0">
               <div [style.backgroundImage]="'url(' + selectedUser.imageUrl + ')'"></div>

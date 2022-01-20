@@ -55,10 +55,6 @@ export class AdminComponent implements OnInit {
   save() {
     this.selectedUser.activated = this.selectedUser.activated ?? false;
     this.selectedUser.login = this.selectedUser.firstName!;
-    const index: number = this.selectedUser.authorities!.indexOf('ROLE_ADMIN');
-    if (index === -1) {
-      this.selectedUser.authorities?.push('ROLE_ADMIN');
-    }
     if (this.selectedUser.id) {
       this.selectedUser.lastModifiedBy = this.currentUser.login;
       this.selectedUser.lastModifiedDate = new Date();
@@ -67,7 +63,18 @@ export class AdminComponent implements OnInit {
       const login = this.selectedUser.login;
       const email = this.selectedUser.email!;
       const password = this.password;
-      this.registerService.save({ login, email, password, langKey: this.translateService.currentLang }).subscribe(() => this.loadAll());
+      const firstName = this.selectedUser.firstName!;
+      const lastName = this.selectedUser.lastName!;
+      this.registerService
+        .registerAdmin({
+          login,
+          email,
+          password,
+          langKey: this.translateService.currentLang,
+          firstName,
+          lastName,
+        })
+        .subscribe(() => this.loadAll());
     }
   }
 

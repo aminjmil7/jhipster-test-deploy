@@ -65,6 +65,16 @@ public class AccountResource {
         mailService.sendActivationEmail(user);
     }
 
+    @PostMapping("/registerAdmin")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void registerAdminAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
+        if (isPasswordLengthInvalid(managedUserVM.getPassword())) {
+            throw new InvalidPasswordException();
+        }
+        User user = userService.registerAdmin(managedUserVM, managedUserVM.getPassword());
+        mailService.sendActivationEmail(user);
+    }
+
     /**
      * {@code GET  /activate} : activate the registered user.
      *
