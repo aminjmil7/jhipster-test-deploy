@@ -1,7 +1,7 @@
 <div>
   <!-- <router-outlet name="navbar"></router-outlet> -->
-  <div class="menu" *ngIf="isMobile"><jhi-menu></jhi-menu></div>
-  <div class="" *ngIf="!isMobile">
+  <div class="menu" *ngIf="!isAdmin"><jhi-menu></jhi-menu></div>
+  <div *ngIf="isAdmin">
     <div class="side-nav" *ngIf="currentAccount"><jhi-admin-side-nav></jhi-admin-side-nav></div>
     <div class="nav-bar" *ngIf="currentAccount"><jhi-admin-nav-bar></jhi-admin-nav-bar></div>
 
@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="container-fluid p-0" *ngIf="isMobile">
+<div class="container-fluid p-0" *ngIf="!isAdmin">
   <div class="card jh-card m-0"></div>
 
   <!-- <jhi-footer></jhi-footer> -->

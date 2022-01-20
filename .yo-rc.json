@@ -42,7 +42,7 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en", "ar-ly"],
-    "herokuAppName": "ubx-fitness-alpha",
+    "herokuAppName": "cryptic-tundra-16226",
     "herokuDeployType": "jar",
     "herokuJavaVersion": "11"
   }

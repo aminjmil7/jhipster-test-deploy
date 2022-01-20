@@ -17,6 +17,7 @@ import { CurrentDeviceService } from './current-device.service';
 export class MainComponent implements OnInit {
   isMobile = false;
   currentAccount: Account | any;
+  isAdmin = false;
   private renderer: Renderer2;
 
   constructor(
@@ -39,6 +40,9 @@ export class MainComponent implements OnInit {
 
     this.accountService.identity().subscribe(account => {
       this.currentAccount = account;
+      if (account) {
+        this.isAdmin = account.authorities.includes('ROLE_ADMIN');
+      }
       if (!account) {
         if (this.isMobile) {
           this.router.navigate(['/login']);

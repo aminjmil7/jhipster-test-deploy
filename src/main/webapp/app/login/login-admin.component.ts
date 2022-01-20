@@ -51,11 +51,16 @@ export class LoginAdminComponent implements OnInit, AfterViewInit {
         rememberMe: this.loginForm.get('rememberMe')!.value,
       })
       .subscribe(
-        () => {
+        account => {
           this.authenticationError = false;
           if (!this.router.getCurrentNavigation()) {
             // There were no routing during login (eg from navigationToStoredUrl)
-            this.router.navigate(['/Admin']).then(() => window.location.reload());
+            if (!account!.authorities.includes('ROLE_ADMIN')) {
+              this.router.navigate(['/scan-code']).then(() => window.location.reload());
+            }
+            if (account!.authorities.includes('ROLE_ADMIN')) {
+              this.router.navigate(['/Admin']).then(() => window.location.reload());
+            }
           }
         },
         () => (this.authenticationError = true)

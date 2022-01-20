@@ -55,7 +55,10 @@ export class AdminComponent implements OnInit {
   save() {
     this.selectedUser.activated = this.selectedUser.activated ?? false;
     this.selectedUser.login = this.selectedUser.firstName!;
-    this.selectedUser.authorities?.push('ROLE_ADMIN');
+    const index: number = this.selectedUser.authorities!.indexOf('ROLE_ADMIN');
+    if (index === -1) {
+      this.selectedUser.authorities?.push('ROLE_ADMIN');
+    }
     if (this.selectedUser.id) {
       this.selectedUser.lastModifiedBy = this.currentUser.login;
       this.selectedUser.lastModifiedDate = new Date();

@@ -15,6 +15,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ParkViewComponent } from './park-view/park-view.component';
 import { ParkResolveService } from './park-resolve.service';
 import { EquipementResolveService } from '../equipement/equipement-resolve.service';
+import { API_KEY } from 'app/app.constants';
 
 const ParkRoute: Routes = [
   {
@@ -53,7 +54,7 @@ const ParkRoute: Routes = [
 @NgModule({
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAjiDifO5ZFHdPFRJG263skV1wOTNoVUgI',
+      apiKey: API_KEY,
     }),
     RouterModule.forChild(ParkRoute),
     SharedModule,

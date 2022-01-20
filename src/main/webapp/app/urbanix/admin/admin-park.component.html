@@ -103,7 +103,7 @@
                 </div>
 
                 <div *ngFor="let media of selectedPark.media">
-                  <div class="badge-delete" matBadge="❌" matBadgeColor="warn" (click)="deleteMedia(media)"></div>
+                  <div class="badge-delete text-white" matBadge="❌" matBadgeColor="warn" (click)="deleteMedia(media)"></div>
                   <div class="avatar-preview p-0">
                     <div [style.backgroundImage]="'url(' + media.filePath + ')'">
                       <i class="zoom-in" (click)="openMedia(contentMedia)"></i>
@@ -173,7 +173,7 @@
             <div class="form-group w-100">
               <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.equipement.equipementID">Equipement ID</label>
               <input type="text" class="form-control has" name="equipementID" [(ngModel)]="equipementID" />
-              <i class="fa fa-plus icon-input-add" (click)="AddEquipement()"></i>
+              <span class="icon-input-add" (click)="AddEquipement()">➕</span>
               <div *ngIf="messageSuccess || messageError">
                 <small class="form-text text-danger" [hidden]="!messageError">{{ messageError }}</small>
                 <small class="form-text text-success" [hidden]="!messageSuccess">{{ messageSuccess }}</small>
