@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
 import { ScanCodeComponent } from './scan-code.component';
-// import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 const ScanCodeRoute: Routes = [
   {
@@ -26,7 +26,7 @@ const ScanCodeRoute: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
-    // ZXingScannerModule,
+    ZXingScannerModule,
     NgbModule,
   ],
   declarations: [ScanCodeComponent],

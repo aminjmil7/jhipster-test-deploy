@@ -27,8 +27,11 @@ export class WorkoutCalanderComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     const previous = this.calendar!.nativeElement.getElementsByClassName('mat-calendar-previous-button')![0];
     previous.addEventListener('click', () => {
-      const monthView = this.calendar!.nativeElement.getElementsByTagName('mat-month-view')![0];
-      const activeDate = monthView.getAttribute('ng-reflect-active-date');
+      // const monthView = this.calendar!.nativeElement.getElementsByTagName('mat-month-view')![0];
+      // const activeDate = monthView.getAttribute('ng-reflect-active-date');
+      const header = this.calendar!.nativeElement.getElementsByClassName('mat-calendar-period-button')![0];
+      const button = header.getElementsByClassName('mat-button-wrapper')![0];
+      const activeDate = button.getElementsByTagName('span')![0].innerHTML;
       this.date = new Date(activeDate);
       this.selectedDate = this.date;
       this.loadEvents();
@@ -36,8 +39,11 @@ export class WorkoutCalanderComponent implements AfterViewInit, OnInit {
 
     const next = this.calendar!.nativeElement.getElementsByClassName('mat-calendar-next-button')![0];
     next.addEventListener('click', () => {
-      const monthView = this.calendar!.nativeElement.getElementsByTagName('mat-month-view')![0];
-      const activeDate = monthView.getAttribute('ng-reflect-active-date');
+      // const monthView = this.calendar!.nativeElement.getElementsByTagName('mat-month-view')![0];
+      // const activeDate = monthView.getAttribute('ng-reflect-active-date');
+      const header = this.calendar!.nativeElement.getElementsByClassName('mat-calendar-period-button')![0];
+      const button = header.getElementsByClassName('mat-button-wrapper')![0];
+      const activeDate = button.getElementsByTagName('span')![0].innerHTML;
       this.date = new Date(activeDate);
       this.selectedDate = this.date;
       this.loadEvents();
@@ -87,17 +93,6 @@ export class WorkoutCalanderComponent implements AfterViewInit, OnInit {
         listView[i].classList.add('special-date');
       }
     }
-
-    // const start = Number(this.startDate.format('DD'));
-    // const end = Number(dayjs(new Date(this.date!.getFullYear(), this.date!.getMonth(), 0)).format('DD'));
-    // for (let date = start; date <= end; date++) {
-    //   if (this.events.filter(event => +dayjs(event.eventDate!).format('DD') === date).length > 0) {
-    //     console.log(date);
-    //     'special-date';
-    //   } else {
-    //     '';
-    //   }
-    // }
   }
 
   onSelectDate(date: Date | null) {

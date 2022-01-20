@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-// import { BarcodeFormat } from '@zxing/library';
+import { BarcodeFormat } from '@zxing/library';
 import { EquipementService } from '../equipement/equipement.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { EquipementService } from '../equipement/equipement.service';
 export class ScanCodeComponent {
   hasDevices = false;
   availableDevices: MediaDeviceInfo[] = [];
-  // formatsEnabled: BarcodeFormat[] = [BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX, BarcodeFormat.EAN_13, BarcodeFormat.QR_CODE];
+  formatsEnabled: BarcodeFormat[] = [BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX, BarcodeFormat.EAN_13, BarcodeFormat.QR_CODE];
   hasPermission = false;
 
   constructor(protected equipementService: EquipementService, protected router: Router) {}
