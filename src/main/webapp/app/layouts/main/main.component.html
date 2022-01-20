@@ -1,9 +1,13 @@
 <div>
   <!-- <router-outlet name="navbar"></router-outlet> -->
-  <div class="menu" *ngIf="!isAdmin"><jhi-menu></jhi-menu></div>
-  <div *ngIf="isAdmin">
-    <div class="side-nav" *ngIf="currentAccount"><jhi-admin-side-nav></jhi-admin-side-nav></div>
-    <div class="nav-bar" *ngIf="currentAccount"><jhi-admin-nav-bar></jhi-admin-nav-bar></div>
+  <div class="menu" *ngIf="!isAdmin">
+    <div *ngIf="isMobile">
+      <jhi-menu></jhi-menu>
+    </div>
+  </div>
+  <div *ngIf="!isMobile || isAdmin">
+    <div class="side-nav" *ngIf="currentAccount && isAdmin"><jhi-admin-side-nav></jhi-admin-side-nav></div>
+    <div class="nav-bar" *ngIf="currentAccount && isAdmin"><jhi-admin-nav-bar></jhi-admin-nav-bar></div>
 
     <div class="container-admin">
       <router-outlet></router-outlet>
