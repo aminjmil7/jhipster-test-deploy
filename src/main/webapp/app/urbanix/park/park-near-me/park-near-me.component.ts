@@ -34,8 +34,8 @@ export class ParkNearMeComponent implements OnInit {
         this.maxRadius = 50000;
       }
       navigator.geolocation.getCurrentPosition(position => {
-        this.lat = position.coords.latitude;
-        this.long = position.coords.longitude;
+        this.lat = Number(position.coords.latitude);
+        this.long = Number(position.coords.longitude);
         this.getParks();
       });
     });
