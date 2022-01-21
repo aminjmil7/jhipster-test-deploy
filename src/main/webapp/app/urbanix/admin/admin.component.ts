@@ -39,8 +39,8 @@ export class AdminComponent implements OnInit {
   loadAll(): void {
     this.selectedUser = {};
     this.userService.query({ size: this.size }).subscribe((res: HttpResponse<User[]>) => {
-      this.users = res.body!;
-      this.usersSearch = res.body!;
+      this.users = res.body!.filter(user => user.authorities!.includes('ROLE_ADMIN'));
+      this.usersSearch = res.body!.filter(user => user.authorities!.includes('ROLE_ADMIN'));
     });
   }
 
