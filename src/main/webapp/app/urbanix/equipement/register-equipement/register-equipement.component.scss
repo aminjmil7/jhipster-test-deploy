@@ -61,8 +61,13 @@ textarea {
 .uploadIcon {
   font-family: auto;
   position: relative;
-  bottom: 2px;
-  right: 5px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url('../../../../content/images/icons/plus.png') no-repeat center top;
+  background-size: contain;
+  left: -6px;
+  top: -2px;
 }
 
 .uploadImage {

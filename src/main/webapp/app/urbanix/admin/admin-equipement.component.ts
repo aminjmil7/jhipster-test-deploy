@@ -40,6 +40,7 @@ export class AdminEquipementComponent implements OnInit {
 
   loadAll(): void {
     this.selectedEquipement = {};
+    this.selectedEquipement.media = [];
     this.equipementService.query({ size: this.size }).subscribe((res: HttpResponse<IEquipement[]>) => {
       this.equipements = res.body!;
       this.equipementsSearch = res.body!;

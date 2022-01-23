@@ -167,8 +167,13 @@ table {
 .uploadIcon {
   font-family: auto;
   position: relative;
-  bottom: 4px;
-  right: 8px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url('../../../content/images/icons/plus.png') no-repeat center top;
+  background-size: contain;
+  left: -6px;
+  top: -2px;
 }
 
 .uploadImage {
@@ -301,4 +306,15 @@ table {
 
 .form-group {
   margin-bottom: 0.5rem;
+}
+
+.mat-badge-content {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('../../../content/images/icons/plus.png') no-repeat center top;
+  background-size: contain;
+  left: 15px;
+  top: 13px;
 }
