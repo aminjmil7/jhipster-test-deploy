@@ -5,12 +5,11 @@ import com.mycompany.myapp.repository.ReportRepository;
 import com.mycompany.myapp.service.ReportService;
 import com.mycompany.myapp.service.dto.ReportDTO;
 import com.mycompany.myapp.service.mapper.ReportMapper;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,9 +57,9 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<ReportDTO> findAll() {
+    public Page<ReportDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Reports");
-        return reportRepository.findAll().stream().map(reportMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
+        return reportRepository.findAll(pageable).map(reportMapper::toDto);
     }
 
     @Override

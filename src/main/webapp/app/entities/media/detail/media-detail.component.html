@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-8">
     <div *ngIf="media">
-      <h2 data-cy="mediaDetailsHeading"><span jhiTranslate="com.mycompany.myappApp.media.detail.title">Media</span></h2>
+      <h2 data-cy="mediaDetailsHeading"><span jhiTranslate="herokutestingApp.media.detail.title">Media</span></h2>
 
       <hr />
 
@@ -14,35 +14,35 @@
         <dd>
           <span>{{ media.id }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.media.fileName">File Name</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.media.fileName">File Name</span></dt>
         <dd>
           <span>{{ media.fileName }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.media.filePath">File Path</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.media.filePath">File Path</span></dt>
         <dd>
           <span>{{ media.filePath }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.media.fileType">File Type</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.media.fileType">File Type</span></dt>
         <dd>
           <span>{{ media.fileType }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.media.authType">Auth Type</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.media.authType">Auth Type</span></dt>
         <dd>
-          <span jhiTranslate="{{ 'com.mycompany.myappApp.AuthType.' + media.authType }}">{{ media.authType }}</span>
+          <span jhiTranslate="{{ 'herokutestingApp.AuthType.' + media.authType }}">{{ media.authType }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.media.park">Park</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.media.park">Park</span></dt>
         <dd>
           <div *ngIf="media.park">
             <a [routerLink]="['/park', media.park?.id, 'view']">{{ media.park?.id }}</a>
           </div>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.media.equipement">Equipement</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.media.equipement">Equipement</span></dt>
         <dd>
           <div *ngIf="media.equipement">
             <a [routerLink]="['/equipement', media.equipement?.id, 'view']">{{ media.equipement?.id }}</a>
           </div>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.media.report">Report</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.media.report">Report</span></dt>
         <dd>
           <div *ngIf="media.report">
             <a [routerLink]="['/report', media.report?.id, 'view']">{{ media.report?.id }}</a>

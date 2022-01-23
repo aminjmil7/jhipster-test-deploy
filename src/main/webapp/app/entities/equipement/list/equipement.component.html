@@ -1,11 +1,11 @@
 <div>
   <h2 id="page-heading" data-cy="EquipementHeading">
-    <span jhiTranslate="com.mycompany.myappApp.equipement.home.title">Equipements</span>
+    <span jhiTranslate="herokutestingApp.equipement.home.title">Equipements</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="com.mycompany.myappApp.equipement.home.refreshListLabel">Refresh List</span>
+        <span jhiTranslate="herokutestingApp.equipement.home.refreshListLabel">Refresh List</span>
       </button>
 
       <button
@@ -15,7 +15,7 @@
         [routerLink]="['/equipement/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="com.mycompany.myappApp.equipement.home.createLabel"> Create a new Equipement </span>
+        <span jhiTranslate="herokutestingApp.equipement.home.createLabel"> Create a new Equipement </span>
       </button>
     </div>
   </h2>
@@ -25,19 +25,29 @@
   <jhi-alert></jhi-alert>
 
   <div class="alert alert-warning" id="no-result" *ngIf="equipements?.length === 0">
-    <span jhiTranslate="com.mycompany.myappApp.equipement.home.notFound">No equipements found</span>
+    <span jhiTranslate="herokutestingApp.equipement.home.notFound">No equipements found</span>
   </div>
 
   <div class="table-responsive" id="entities" *ngIf="equipements && equipements.length > 0">
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
-        <tr>
-          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.equipement.modelName">Model Name</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.equipement.modelNumber">Model Number</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.equipement.instruction">Instruction</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.equipement.verified">Verified</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.equipement.park">Park</span></th>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="modelName">
+            <span jhiTranslate="herokutestingApp.equipement.modelName">Model Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="modelNumber">
+            <span jhiTranslate="herokutestingApp.equipement.modelNumber">Model Number</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="instruction">
+            <span jhiTranslate="herokutestingApp.equipement.instruction">Instruction</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="verified">
+            <span jhiTranslate="herokutestingApp.equipement.verified">Verified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="park.id">
+            <span jhiTranslate="herokutestingApp.equipement.park">Park</span> <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -86,5 +96,23 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div *ngIf="equipements && equipements.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
   </div>
 </div>

@@ -11,8 +11,6 @@ export interface IEquipement {
   reports?: IReport[] | null;
   media?: IMedia[] | null;
   park?: IPark | null;
-
-  modalPreview?: string | null; // To Local Use
 }
 
 export class Equipement implements IEquipement {

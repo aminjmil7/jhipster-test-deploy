@@ -92,6 +92,9 @@ public class ReportQueryService extends QueryService<Report> {
             if (criteria.getMessage() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getMessage(), Report_.message));
             }
+            if (criteria.getDate() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getDate(), Report_.date));
+            }
             if (criteria.getMediaId() != null) {
                 specification =
                     specification.and(

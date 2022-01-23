@@ -5,12 +5,11 @@ import com.mycompany.myapp.repository.EquipementRepository;
 import com.mycompany.myapp.service.EquipementService;
 import com.mycompany.myapp.service.dto.EquipementDTO;
 import com.mycompany.myapp.service.mapper.EquipementMapper;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,9 +57,9 @@ public class EquipementServiceImpl implements EquipementService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<EquipementDTO> findAll() {
+    public Page<EquipementDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Equipements");
-        return equipementRepository.findAll().stream().map(equipementMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
+        return equipementRepository.findAll(pageable).map(equipementMapper::toDto);
     }
 
     @Override

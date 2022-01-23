@@ -3,15 +3,12 @@ package com.mycompany.myapp.domain;
 import java.io.Serializable;
 import java.time.Instant;
 import javax.persistence.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A Events.
  */
 @Entity
 @Table(name = "Events")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Events implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -4,15 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mycompany.myapp.domain.enumeration.AuthType;
 import java.io.Serializable;
 import javax.persistence.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A Media.
  */
 @Entity
 @Table(name = "media")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Media implements Serializable {
 
     private static final long serialVersionUID = 1L;

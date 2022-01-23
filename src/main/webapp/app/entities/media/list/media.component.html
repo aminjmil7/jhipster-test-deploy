@@ -1,11 +1,11 @@
 <div>
   <h2 id="page-heading" data-cy="MediaHeading">
-    <span jhiTranslate="com.mycompany.myappApp.media.home.title">Media</span>
+    <span jhiTranslate="herokutestingApp.media.home.title">Media</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="com.mycompany.myappApp.media.home.refreshListLabel">Refresh List</span>
+        <span jhiTranslate="herokutestingApp.media.home.refreshListLabel">Refresh List</span>
       </button>
 
       <button
@@ -15,7 +15,7 @@
         [routerLink]="['/media/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="com.mycompany.myappApp.media.home.createLabel"> Create a new Media </span>
+        <span jhiTranslate="herokutestingApp.media.home.createLabel"> Create a new Media </span>
       </button>
     </div>
   </h2>
@@ -25,21 +25,35 @@
   <jhi-alert></jhi-alert>
 
   <div class="alert alert-warning" id="no-result" *ngIf="media?.length === 0">
-    <span jhiTranslate="com.mycompany.myappApp.media.home.notFound">No media found</span>
+    <span jhiTranslate="herokutestingApp.media.home.notFound">No media found</span>
   </div>
 
   <div class="table-responsive" id="entities" *ngIf="media && media.length > 0">
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
-        <tr>
-          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.media.fileName">File Name</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.media.filePath">File Path</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.media.fileType">File Type</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.media.authType">Auth Type</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.media.park">Park</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.media.equipement">Equipement</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.media.report">Report</span></th>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="fileName">
+            <span jhiTranslate="herokutestingApp.media.fileName">File Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="filePath">
+            <span jhiTranslate="herokutestingApp.media.filePath">File Path</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fileType">
+            <span jhiTranslate="herokutestingApp.media.fileType">File Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="authType">
+            <span jhiTranslate="herokutestingApp.media.authType">Auth Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="park.id">
+            <span jhiTranslate="herokutestingApp.media.park">Park</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="equipement.id">
+            <span jhiTranslate="herokutestingApp.media.equipement">Equipement</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="report.id">
+            <span jhiTranslate="herokutestingApp.media.report">Report</span> <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -51,7 +65,7 @@
           <td>{{ media.fileName }}</td>
           <td>{{ media.filePath }}</td>
           <td>{{ media.fileType }}</td>
-          <td jhiTranslate="{{ 'com.mycompany.myappApp.AuthType.' + media.authType }}">{{ media.authType }}</td>
+          <td jhiTranslate="{{ 'herokutestingApp.AuthType.' + media.authType }}">{{ media.authType }}</td>
           <td>
             <div *ngIf="media.park">
               <a [routerLink]="['/park', media.park?.id, 'view']">{{ media.park?.id }}</a>
@@ -88,5 +102,23 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div *ngIf="media && media.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
   </div>
 </div>

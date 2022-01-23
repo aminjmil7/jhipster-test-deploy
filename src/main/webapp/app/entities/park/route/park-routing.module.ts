@@ -11,6 +11,9 @@ const parkRoute: Routes = [
   {
     path: '',
     component: ParkComponent,
+    data: {
+      defaultSort: 'id,asc',
+    },
     canActivate: [UserRouteAccessService],
   },
   {

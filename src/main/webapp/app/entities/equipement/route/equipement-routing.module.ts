@@ -11,6 +11,9 @@ const equipementRoute: Routes = [
   {
     path: '',
     component: EquipementComponent,
+    data: {
+      defaultSort: 'id,asc',
+    },
     canActivate: [UserRouteAccessService],
   },
   {

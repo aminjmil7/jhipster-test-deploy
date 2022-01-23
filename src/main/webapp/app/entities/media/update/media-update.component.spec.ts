@@ -50,10 +50,10 @@ describe('Component Tests', () => {
     describe('ngOnInit', () => {
       it('Should call Park query and add missing value', () => {
         const media: IMedia = { id: 456 };
-        const park: IPark = { id: 8762 };
+        const park: IPark = { id: 43672 };
         media.park = park;
 
-        const parkCollection: IPark[] = [{ id: 72294 }];
+        const parkCollection: IPark[] = [{ id: 13457 }];
         spyOn(parkService, 'query').and.returnValue(of(new HttpResponse({ body: parkCollection })));
         const additionalParks = [park];
         const expectedCollection: IPark[] = [...additionalParks, ...parkCollection];
@@ -69,10 +69,10 @@ describe('Component Tests', () => {
 
       it('Should call Equipement query and add missing value', () => {
         const media: IMedia = { id: 456 };
-        const equipement: IEquipement = { id: 84202 };
+        const equipement: IEquipement = { id: 68757 };
         media.equipement = equipement;
 
-        const equipementCollection: IEquipement[] = [{ id: 41568 }];
+        const equipementCollection: IEquipement[] = [{ id: 42295 }];
         spyOn(equipementService, 'query').and.returnValue(of(new HttpResponse({ body: equipementCollection })));
         const additionalEquipements = [equipement];
         const expectedCollection: IEquipement[] = [...additionalEquipements, ...equipementCollection];
@@ -107,9 +107,9 @@ describe('Component Tests', () => {
 
       it('Should update editForm', () => {
         const media: IMedia = { id: 456 };
-        const park: IPark = { id: 26134 };
+        const park: IPark = { id: 90556 };
         media.park = park;
-        const equipement: IEquipement = { id: 751 };
+        const equipement: IEquipement = { id: 75142 };
         media.equipement = equipement;
         const report: IReport = { id: 90665 };
         media.report = report;

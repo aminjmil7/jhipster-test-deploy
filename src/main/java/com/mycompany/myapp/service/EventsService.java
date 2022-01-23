@@ -1,8 +1,9 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.service.dto.EventsDTO;
-import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing {@link com.mycompany.myapp.domain.Events}.
@@ -27,9 +28,10 @@ public interface EventsService {
     /**
      * Get all the events.
      *
+     * @param pageable the pagination information.
      * @return the list of entities.
      */
-    List<EventsDTO> findAll();
+    Page<EventsDTO> findAll(Pageable pageable);
 
     /**
      * Get the "id" events.

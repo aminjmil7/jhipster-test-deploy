@@ -11,6 +11,9 @@ const mediaRoute: Routes = [
   {
     path: '',
     component: MediaComponent,
+    data: {
+      defaultSort: 'id,asc',
+    },
     canActivate: [UserRouteAccessService],
   },
   {

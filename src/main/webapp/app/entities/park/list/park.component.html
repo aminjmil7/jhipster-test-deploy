@@ -1,11 +1,11 @@
 <div>
   <h2 id="page-heading" data-cy="ParkHeading">
-    <span jhiTranslate="com.mycompany.myappApp.park.home.title">Parks</span>
+    <span jhiTranslate="herokutestingApp.park.home.title">Parks</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="com.mycompany.myappApp.park.home.refreshListLabel">Refresh List</span>
+        <span jhiTranslate="herokutestingApp.park.home.refreshListLabel">Refresh List</span>
       </button>
 
       <button
@@ -15,7 +15,7 @@
         [routerLink]="['/park/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="com.mycompany.myappApp.park.home.createLabel"> Create a new Park </span>
+        <span jhiTranslate="herokutestingApp.park.home.createLabel"> Create a new Park </span>
       </button>
     </div>
   </h2>
@@ -25,24 +25,42 @@
   <jhi-alert></jhi-alert>
 
   <div class="alert alert-warning" id="no-result" *ngIf="parks?.length === 0">
-    <span jhiTranslate="com.mycompany.myappApp.park.home.notFound">No parks found</span>
+    <span jhiTranslate="herokutestingApp.park.home.notFound">No parks found</span>
   </div>
 
   <div class="table-responsive" id="entities" *ngIf="parks && parks.length > 0">
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
-        <tr>
-          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.parkName">Park Name</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.parkAddress">Park Address</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.longtitude">Longtitude</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.latitude">Latitude</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.verified">Verified</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.dateInstall">Date Install</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.dateOpen">Date Open</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.dateClose">Date Close</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.note">Note</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.park.reseller">Reseller</span></th>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="parkName">
+            <span jhiTranslate="herokutestingApp.park.parkName">Park Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="parkAddress">
+            <span jhiTranslate="herokutestingApp.park.parkAddress">Park Address</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="longtitude">
+            <span jhiTranslate="herokutestingApp.park.longtitude">Longtitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="latitude">
+            <span jhiTranslate="herokutestingApp.park.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="verified">
+            <span jhiTranslate="herokutestingApp.park.verified">Verified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateInstall">
+            <span jhiTranslate="herokutestingApp.park.dateInstall">Date Install</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateOpen">
+            <span jhiTranslate="herokutestingApp.park.dateOpen">Date Open</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateClose">
+            <span jhiTranslate="herokutestingApp.park.dateClose">Date Close</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="note"><span jhiTranslate="herokutestingApp.park.note">Note</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="reseller">
+            <span jhiTranslate="herokutestingApp.park.reseller">Reseller</span> <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -82,5 +100,23 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div *ngIf="parks && parks.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
   </div>
 </div>

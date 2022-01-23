@@ -6,15 +6,12 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A Report.
  */
 @Entity
 @Table(name = "report")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Report implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -33,7 +30,6 @@ public class Report implements Serializable {
     private Instant date;
 
     @OneToMany(mappedBy = "report")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "park", "equipement", "report" }, allowSetters = true)
     private Set<Media> media = new HashSet<>();
 

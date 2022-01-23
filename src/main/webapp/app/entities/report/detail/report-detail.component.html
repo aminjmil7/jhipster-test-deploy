@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-8">
     <div *ngIf="report">
-      <h2 data-cy="reportDetailsHeading"><span jhiTranslate="com.mycompany.myappApp.report.detail.title">Report</span></h2>
+      <h2 data-cy="reportDetailsHeading"><span jhiTranslate="herokutestingApp.report.detail.title">Report</span></h2>
 
       <hr />
 
@@ -14,25 +14,25 @@
         <dd>
           <span>{{ report.id }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.report.mail">Mail</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.report.mail">Mail</span></dt>
         <dd>
           <span>{{ report.mail }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.report.message">Message</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.report.message">Message</span></dt>
         <dd>
           <span>{{ report.message }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.report.date">Date</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.report.date">Date</span></dt>
         <dd>
           <span>{{ report.date | formatMediumDatetime }}</span>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.report.equipement">Equipement</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.report.equipement">Equipement</span></dt>
         <dd>
           <div *ngIf="report.equipement">
             <a [routerLink]="['/equipement', report.equipement?.id, 'view']">{{ report.equipement?.id }}</a>
           </div>
         </dd>
-        <dt><span jhiTranslate="com.mycompany.myappApp.report.park">Park</span></dt>
+        <dt><span jhiTranslate="herokutestingApp.report.park">Park</span></dt>
         <dd>
           <div *ngIf="report.park">
             <a [routerLink]="['/park', report.park?.id, 'view']">{{ report.park?.id }}</a>

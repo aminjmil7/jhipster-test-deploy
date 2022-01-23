@@ -1,11 +1,11 @@
 <div>
   <h2 id="page-heading" data-cy="EventsHeading">
-    <span jhiTranslate="com.mycompany.myappApp.events.home.title">Events</span>
+    <span jhiTranslate="herokutestingApp.events.home.title">Events</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="com.mycompany.myappApp.events.home.refreshListLabel">Refresh List</span>
+        <span jhiTranslate="herokutestingApp.events.home.refreshListLabel">Refresh List</span>
       </button>
 
       <button
@@ -15,7 +15,7 @@
         [routerLink]="['/events/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="com.mycompany.myappApp.events.home.createLabel"> Create a new Events </span>
+        <span jhiTranslate="herokutestingApp.events.home.createLabel"> Create a new Events </span>
       </button>
     </div>
   </h2>
@@ -25,17 +25,23 @@
   <jhi-alert></jhi-alert>
 
   <div class="alert alert-warning" id="no-result" *ngIf="events?.length === 0">
-    <span jhiTranslate="com.mycompany.myappApp.events.home.notFound">No events found</span>
+    <span jhiTranslate="herokutestingApp.events.home.notFound">No events found</span>
   </div>
 
   <div class="table-responsive" id="entities" *ngIf="events && events.length > 0">
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
-        <tr>
-          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.events.eventName">Event Name</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.events.eventDate">Event Date</span></th>
-          <th scope="col"><span jhiTranslate="com.mycompany.myappApp.events.user_id">User Id</span></th>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="eventName">
+            <span jhiTranslate="herokutestingApp.events.eventName">Event Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="eventDate">
+            <span jhiTranslate="herokutestingApp.events.eventDate">Event Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="user_id">
+            <span jhiTranslate="herokutestingApp.events.user_id">User Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -68,5 +74,23 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div *ngIf="events && events.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
   </div>
 </div>

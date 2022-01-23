@@ -5,12 +5,11 @@ import com.mycompany.myapp.repository.EventsRepository;
 import com.mycompany.myapp.service.EventsService;
 import com.mycompany.myapp.service.dto.EventsDTO;
 import com.mycompany.myapp.service.mapper.EventsMapper;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,9 +57,9 @@ public class EventsServiceImpl implements EventsService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<EventsDTO> findAll() {
+    public Page<EventsDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Events");
-        return eventsRepository.findAll().stream().map(eventsMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
+        return eventsRepository.findAll(pageable).map(eventsMapper::toDto);
     }
 
     @Override

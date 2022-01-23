@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-report-heading" data-cy="ReportCreateUpdateHeading" jhiTranslate="com.mycompany.myappApp.report.home.createOrEditLabel">
+      <h2 id="jhi-report-heading" data-cy="ReportCreateUpdateHeading" jhiTranslate="herokutestingApp.report.home.createOrEditLabel">
         Create or edit a Report
       </h2>
 
@@ -14,17 +14,17 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.report.mail" for="field_mail">Mail</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.report.mail" for="field_mail">Mail</label>
           <input type="text" class="form-control" name="mail" id="field_mail" data-cy="mail" formControlName="mail" />
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.report.message" for="field_message">Message</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.report.message" for="field_message">Message</label>
           <input type="text" class="form-control" name="message" id="field_message" data-cy="message" formControlName="message" />
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.report.date" for="field_date">Date</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.report.date" for="field_date">Date</label>
           <div class="d-flex">
             <input
               id="field_date"
@@ -39,9 +39,7 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.report.equipement" for="field_equipement"
-            >Equipement</label
-          >
+          <label class="form-control-label" jhiTranslate="herokutestingApp.report.equipement" for="field_equipement">Equipement</label>
           <select class="form-control" id="field_equipement" data-cy="equipement" name="equipement" formControlName="equipement">
             <option [ngValue]="null"></option>
             <option
@@ -56,7 +54,7 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.report.park" for="field_park">Park</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.report.park" for="field_park">Park</label>
           <select class="form-control" id="field_park" data-cy="park" name="park" formControlName="park">
             <option [ngValue]="null"></option>
             <option

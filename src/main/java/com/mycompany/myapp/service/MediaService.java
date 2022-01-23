@@ -1,8 +1,9 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.service.dto.MediaDTO;
-import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing {@link com.mycompany.myapp.domain.Media}.
@@ -27,9 +28,10 @@ public interface MediaService {
     /**
      * Get all the media.
      *
+     * @param pageable the pagination information.
      * @return the list of entities.
      */
-    List<MediaDTO> findAll();
+    Page<MediaDTO> findAll(Pageable pageable);
 
     /**
      * Get the "id" media.

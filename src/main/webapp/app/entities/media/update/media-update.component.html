@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-media-heading" data-cy="MediaCreateUpdateHeading" jhiTranslate="com.mycompany.myappApp.media.home.createOrEditLabel">
+      <h2 id="jhi-media-heading" data-cy="MediaCreateUpdateHeading" jhiTranslate="herokutestingApp.media.home.createOrEditLabel">
         Create or edit a Media
       </h2>
 
@@ -14,31 +14,31 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.media.fileName" for="field_fileName">File Name</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.media.fileName" for="field_fileName">File Name</label>
           <input type="text" class="form-control" name="fileName" id="field_fileName" data-cy="fileName" formControlName="fileName" />
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.media.filePath" for="field_filePath">File Path</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.media.filePath" for="field_filePath">File Path</label>
           <input type="text" class="form-control" name="filePath" id="field_filePath" data-cy="filePath" formControlName="filePath" />
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.media.fileType" for="field_fileType">File Type</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.media.fileType" for="field_fileType">File Type</label>
           <input type="text" class="form-control" name="fileType" id="field_fileType" data-cy="fileType" formControlName="fileType" />
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.media.authType" for="field_authType">Auth Type</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.media.authType" for="field_authType">Auth Type</label>
           <select class="form-control" name="authType" formControlName="authType" id="field_authType" data-cy="authType">
-            <option [ngValue]="null">{{ 'com.mycompany.myappApp.AuthType.null' | translate }}</option>
-            <option value="LEARN">{{ 'com.mycompany.myappApp.AuthType.LEARN' | translate }}</option>
-            <option value="TECHFILE">{{ 'com.mycompany.myappApp.AuthType.TECHFILE' | translate }}</option>
+            <option [ngValue]="null">{{ 'herokutestingApp.AuthType.null' | translate }}</option>
+            <option value="LEARN">{{ 'herokutestingApp.AuthType.LEARN' | translate }}</option>
+            <option value="TECHFILE">{{ 'herokutestingApp.AuthType.TECHFILE' | translate }}</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.media.park" for="field_park">Park</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.media.park" for="field_park">Park</label>
           <select class="form-control" id="field_park" data-cy="park" name="park" formControlName="park">
             <option [ngValue]="null"></option>
             <option
@@ -51,7 +51,7 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.media.equipement" for="field_equipement">Equipement</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.media.equipement" for="field_equipement">Equipement</label>
           <select class="form-control" id="field_equipement" data-cy="equipement" name="equipement" formControlName="equipement">
             <option [ngValue]="null"></option>
             <option
@@ -66,7 +66,7 @@
         </div>
 
         <div class="form-group">
-          <label class="form-control-label" jhiTranslate="com.mycompany.myappApp.media.report" for="field_report">Report</label>
+          <label class="form-control-label" jhiTranslate="herokutestingApp.media.report" for="field_report">Report</label>
           <select class="form-control" id="field_report" data-cy="report" name="report" formControlName="report">
             <option [ngValue]="null"></option>
             <option

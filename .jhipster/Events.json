@@ -20,7 +20,7 @@
   "relationships": [],
   "entityTableName": "Events",
   "dto": "mapstruct",
-  "pagination": "no",
+  "pagination": "pagination",
   "service": "serviceImpl",
   "jpaMetamodelFiltering": true,
   "fluentMethods": true,

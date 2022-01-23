@@ -5,12 +5,11 @@ import com.mycompany.myapp.repository.MediaRepository;
 import com.mycompany.myapp.service.MediaService;
 import com.mycompany.myapp.service.dto.MediaDTO;
 import com.mycompany.myapp.service.mapper.MediaMapper;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,9 +57,9 @@ public class MediaServiceImpl implements MediaService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<MediaDTO> findAll() {
+    public Page<MediaDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Media");
-        return mediaRepository.findAll().stream().map(mediaMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
+        return mediaRepository.findAll(pageable).map(mediaMapper::toDto);
     }
 
     @Override

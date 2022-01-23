@@ -11,6 +11,9 @@ const eventsRoute: Routes = [
   {
     path: '',
     component: EventsComponent,
+    data: {
+      defaultSort: 'id,asc',
+    },
     canActivate: [UserRouteAccessService],
   },
   {

@@ -12,9 +12,6 @@ export interface IMedia {
   park?: IPark | null;
   equipement?: IEquipement | null;
   report?: IReport | null;
-
-  // to Local Use
-  fileReader?: any;
 }
 
 export class Media implements IMedia {

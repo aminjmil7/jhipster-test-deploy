@@ -11,6 +11,9 @@ const reportRoute: Routes = [
   {
     path: '',
     component: ReportComponent,
+    data: {
+      defaultSort: 'id,asc',
+    },
     canActivate: [UserRouteAccessService],
   },
   {

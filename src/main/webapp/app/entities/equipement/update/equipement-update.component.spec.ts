@@ -42,10 +42,10 @@ describe('Component Tests', () => {
     describe('ngOnInit', () => {
       it('Should call Park query and add missing value', () => {
         const equipement: IEquipement = { id: 456 };
-        const park: IPark = { id: 67116 };
+        const park: IPark = { id: 26134 };
         equipement.park = park;
 
-        const parkCollection: IPark[] = [{ id: 7948 }];
+        const parkCollection: IPark[] = [{ id: 82592 }];
         spyOn(parkService, 'query').and.returnValue(of(new HttpResponse({ body: parkCollection })));
         const additionalParks = [park];
         const expectedCollection: IPark[] = [...additionalParks, ...parkCollection];
@@ -61,7 +61,7 @@ describe('Component Tests', () => {
 
       it('Should update editForm', () => {
         const equipement: IEquipement = { id: 456 };
-        const park: IPark = { id: 63288 };
+        const park: IPark = { id: 15554 };
         equipement.park = park;
 
         activatedRoute.data = of({ equipement });

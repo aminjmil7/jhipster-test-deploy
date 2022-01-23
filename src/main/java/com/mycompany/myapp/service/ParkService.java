@@ -1,8 +1,9 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.service.dto.ParkDTO;
-import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing {@link com.mycompany.myapp.domain.Park}.
@@ -27,9 +28,10 @@ public interface ParkService {
     /**
      * Get all the parks.
      *
+     * @param pageable the pagination information.
      * @return the list of entities.
      */
-    List<ParkDTO> findAll();
+    Page<ParkDTO> findAll(Pageable pageable);
 
     /**
      * Get the "id" park.
