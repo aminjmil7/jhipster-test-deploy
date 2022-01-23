@@ -103,8 +103,10 @@
                 </div>
 
                 <div *ngFor="let media of selectedPark.media">
-                  <div class="badge-delete text-white" matBadge="❌" matBadgeColor="warn" (click)="deleteMedia(media)"></div>
-                  <div class="avatar-preview p-0">
+                  <div class="badge badge-pill badge-delete" (click)="deleteMedia(media)">
+                    <span class="close"></span>
+                  </div>
+                  <div class="avatar-preview preview-with-badge">
                     <div [style.backgroundImage]="'url(' + media.filePath + ')'">
                       <i class="zoom-in" (click)="openMedia(contentMedia)"></i>
                     </div>
@@ -136,7 +138,9 @@
                     ><br />
                     <span class="modelNumber">{{ equipement.modelNumber }}</span>
                     <div class="col-md-9 align-self-center text-right">
-                      <div class="badge badge-pill badge-delete-equipement" (click)="deleteEquipement(equipement)">❌</div>
+                      <div class="badge badge-pill badge-delete-equipement" (click)="deleteEquipement(equipement)">
+                        <span class="close"></span>
+                      </div>
                     </div>
                   </div>
                 </div>

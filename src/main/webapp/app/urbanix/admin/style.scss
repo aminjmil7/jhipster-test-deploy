@@ -130,7 +130,6 @@ table {
   height: 50px;
   border-radius: 0.75rem !important;
   margin: 5px;
-  position: relative;
   overflow: hidden;
 }
 
@@ -220,11 +219,20 @@ table {
 }
 
 .badge-delete {
-  z-index: 1;
-  margin-bottom: -1.25rem !important;
-  margin-left: 2.25rem !important;
-  padding-top: 1.25rem !important;
-  padding-left: 1.25rem !important;
+  z-index: 1 !important;
+  background: #bd0202 !important;
+  padding: 3px 3px;
+  cursor: pointer;
+  margin-bottom: 0.75rem !important;
+  margin-top: -0.25rem !important;
+  margin-left: 2.5rem !important;
+  padding-top: 0.25rem !important;
+  padding-left: 0.25rem !important;
+}
+
+.preview-with-badge {
+  margin-top: -2rem !important;
+  z-index: 2 !important;
 }
 
 .image-preview {
@@ -295,26 +303,29 @@ table {
 
 ::ng-deep .mat-badge-warn .mat-badge-content {
   background: #bd0202 !important;
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url('../../../content/images/icons/close.png') no-repeat center top;
+  background-size: contain;
 }
 
 .badge-delete-equipement {
   background: #bd0202 !important;
-  color: white;
-  padding: 3px 1px;
+  padding: 3px 3px;
   cursor: pointer;
+}
+
+.close {
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url('../../../content/images/icons/close.png') no-repeat center top;
+  background-size: contain;
 }
 
 .form-group {
   margin-bottom: 0.5rem;
-}
-
-.mat-badge-content {
-  position: relative;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url('../../../content/images/icons/plus.png') no-repeat center top;
-  background-size: contain;
-  left: 15px;
-  top: 13px;
 }

@@ -53,6 +53,7 @@ export class AdminParkComponent implements OnInit {
 
   loadAll(): void {
     this.selectedPark = {};
+    this.selectedPark.media = [];
     this.parkService.query({ size: this.size }).subscribe((res: HttpResponse<IPark[]>) => {
       this.parks = res.body!;
       this.parksSearch = res.body!;
