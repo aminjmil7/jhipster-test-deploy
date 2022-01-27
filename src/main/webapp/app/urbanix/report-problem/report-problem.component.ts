@@ -29,11 +29,8 @@ export class ReportProblemComponent implements OnInit {
   parksSharedCollection: IPark[] = [];
 
   editForm = this.fb.group({
-    id: [],
-    mail: [],
-    message: [],
-    equipement: [],
-    park: [],
+    mail: '',
+    message: '',
   });
   park: Park = {};
 
@@ -125,22 +122,16 @@ export class ReportProblemComponent implements OnInit {
 
   protected updateForm(): void {
     this.editForm.patchValue({
-      id: [],
-      mail: [],
-      message: [],
-      equipement: [],
-      park: [],
+      mail: '',
+      message: '',
     });
   }
 
   protected createFromForm(): IReport {
     return {
       ...new Report(),
-      id: this.editForm.get(['id'])!.value,
       mail: this.editForm.get(['mail'])!.value,
       message: this.editForm.get(['message'])!.value,
-      equipement: this.editForm.get(['equipement'])!.value,
-      park: this.editForm.get(['park'])!.value,
     };
   }
 }

@@ -30,8 +30,23 @@
         alt="My profile"
       />Read instrustion
     </button>
-    <button class="footer-button" style="background-color: #ff8d00; color: white" routerLinkActive="active" routerLink="/reportProblem">
+    <button
+      class="footer-button"
+      style="background-color: #ff8d00; color: white"
+      *ngIf="!equipement.park!.id"
+      routerLinkActive="active"
+      routerLink="/reportProblem"
+    >
       <fa-icon [icon]="['fas', 'exclamation-circle']" size="1x"></fa-icon>Report a problem
+    </button>
+    <button
+      class="footer-button"
+      style="background-color: #ff8d00; color: white"
+      *ngIf="equipement.park!.id"
+      routerLinkActive="active"
+      [routerLink]="['/reportProblem', equipement.park!.id]"
+    >
+      <fa-icon [icon]="['fas', 'exclamation-circle']" size="1x"></fa-icon> Report a problem
     </button>
   </div>
 </div>
