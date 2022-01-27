@@ -53,8 +53,8 @@
 
 #loading-content {
   border: 3px solid transparent;
-  border-top-color: #f40d42;
-  border-bottom-color: #f40d42;
+  border-top-color: #ff8200;
+  border-bottom-color: #ff8200;
   border-radius: 50%;
   -webkit-animation: loader 2s linear infinite;
   -moz-animation: loader 2s linear infinite;
@@ -75,8 +75,8 @@
 
 #loading-content:after {
   border: 3px solid transparent;
-  border-top-color: #2682c4;
-  border-bottom-color: #2682c4;
+  border-top-color: #0f0;
+  border-bottom-color: #0f0;
   border-radius: 50%;
   -webkit-animation: loader 1.5s linear infinite;
   animation: loader 1.5s linear infinite;
